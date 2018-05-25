@@ -1,12 +1,12 @@
 Package: StarSpaceR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: 'StarSpace' Wrapper for Text Classification and Word Representation.
 Version: 0.1.0
-Author: Who wrote it
+Authors@R: c(person("Zygmunt", "Zawadzki", role = c("aut", "cre", "cph"), email = "zygmunt@zstat.pl"),
+person("Facebook, Inc", role = c("cph"), email = "ledell@fb.com"))
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Description: Wrapper for StarSpace library.
+License: BSD + File
 Encoding: UTF-8
 LazyData: true
 Imports: Rcpp (>= 0.12.17)
