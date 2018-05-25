@@ -32,13 +32,7 @@ using namespace std;
 //   args->model = model;
 //
 //   StarSpace sp(args);
-//   if (boost::algorithm::ends_with(args->model, ".tsv")) {
-//     sp.initFromTsv(args->model);
-//   } else {
-//     sp.initFromSavedModel(args->model);
-//     cout << "------Loaded model args:\n";
-//     args->printArgs();
-//   }
+
 //
 //
 // }
@@ -56,6 +50,15 @@ class starspaceR {
       model =  std::unique_ptr<starspace::StarSpace>(new starspace::StarSpace(args));
     }
 
+    void load_model(std::string path) {
+        args->model = path;
+        if (boost::algorithm::ends_with(path, ".tsv")) {
+          model->initFromTsv(args->model);
+        } else {
+          model->initFromSavedModel(args->model);
+        }
+    }
+
     int test() { return 1; };
 
 };
@@ -63,5 +66,6 @@ class starspaceR {
 RCPP_MODULE(STARSPACER_MODULE) {
   class_<starspaceR>("starspaceR")
   .constructor("Managed Starspace model")
+  .method("load_model", &starspaceR::load_model, "Load model from a file.")
   .method("test", &starspaceR::test, "Test");
 }
