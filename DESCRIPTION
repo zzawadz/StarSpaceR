@@ -1,14 +1,14 @@
 Package: StarSpaceR
 Type: Package
-Title: 'StarSpace' Wrapper for Text Classification and Word Representation.
+Title: 'StarSpace' Wrapper for Text Classification and Word Representation
 Version: 0.1.0
 Authors@R: c(person("Zygmunt", "Zawadzki", role = c("aut", "cre", "cph"), email = "zygmunt@zstat.pl"), person("Facebook, Inc", role = c("cph"), email = "ledell@fb.com"))
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: Wrapper for StarSpace library.
-License: BSD + File
+License: BSD + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: Rcpp (>= 0.12.17)
+Imports: Rcpp (>= 0.12.17), assertthat, methods
 LinkingTo: Rcpp, BH
 RoxygenNote: 6.0.1
 Suggests: testthat

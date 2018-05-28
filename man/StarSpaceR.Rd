@@ -5,7 +5,7 @@
 \alias{StarSpaceR}
 \alias{StarSpaceR-package}
 \alias{StarSpaceR-package}
-\title{StarSpaceR: 'StarSpace' Wrapper for Text Classification and Word Representation.}
+\title{StarSpaceR: 'StarSpace' Wrapper for Text Classification and Word Representation}
 \description{
 Wrapper for StarSpace library.
 }

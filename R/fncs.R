@@ -3,10 +3,13 @@
 #' @param path
 #'
 #' @return
+#'
+#' A StarSpaceR object.
+#'
 #' @export
 #'
 ssr_load_model <- function(path) {
-  model <- new(StarSpaceR:::starspaceR)
+  model <- new(starspaceR)
   model$load_model(path)
   model
 }
@@ -16,6 +19,9 @@ ssr_load_model <- function(path) {
 #' @param path
 #'
 #' @return
+#'
+#' A matrix with words embeddings in rows.
+#'
 #' @importFrom assertthat assert_that
 #' @export
 #'

@@ -4,10 +4,13 @@
 \alias{ssr_get_vectors}
 \title{Extract words embeddings from StarSpace model.}
 \usage{
-ssr_get_vectors(model, words = get_dictionary(model))
+ssr_get_vectors(model, words)
 }
 \arguments{
 \item{path}{}
+}
+\value{
+A matrix with words embeddings in rows.
 }
 \description{
 Extract words embeddings from StarSpace model.

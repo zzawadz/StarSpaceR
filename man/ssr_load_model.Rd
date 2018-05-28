@@ -9,6 +9,9 @@ ssr_load_model(path)
 \arguments{
 \item{path}{}
 }
+\value{
+A StarSpaceR object.
+}
 \description{
 Load StarSpace model.
 }

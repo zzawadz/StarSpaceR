@@ -38,3 +38,4 @@ doc_parser.o: dict.o $(PKGROOT)/doc_parser.cpp $(PKGROOT)/doc_parser.h
 
 starspace.o: $(PKGROOT)/starspace.cpp $(PKGROOT)/starspace.h
 	$(CXX) $(CXXFLAGS_STARSPACE) $(INCLUDES) -g -c $(PKGROOT)/starspace.cpp
+
