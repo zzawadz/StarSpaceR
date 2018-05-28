@@ -5,8 +5,16 @@
 \alias{StarSpaceR}
 \alias{StarSpaceR-package}
 \alias{StarSpaceR-package}
-\title{StarSpaceR: What the Package Does (Title Case)}
+\title{StarSpaceR: 'StarSpace' Wrapper for Text Classification and Word Representation.}
 \description{
-More about what it does (maybe more than one line)
-Use four spaces when indenting paragraphs within the Description.
+Wrapper for StarSpace library.
+}
+\author{
+\strong{Maintainer}: Zygmunt Zawadzki \email{zygmunt@zstat.pl} [copyright holder]
+
+Other contributors:
+\itemize{
+  \item Facebook, Inc \email{ledell@fb.com} [copyright holder]
+}
+
 }

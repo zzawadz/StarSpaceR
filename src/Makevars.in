@@ -1,5 +1,5 @@
 PKGROOT = ./starspace
-CXXFLAGS_STARSPACE = -fpic  -g -O2 $(SHLIB_PTHREAD_FLAGS) -I$(PKGROOT) -std=gnu++11 {{{BHPATH}}}
+CXXFLAGS_STARSPACE = -fpic $(SHLIB_PTHREAD_FLAGS) -I$(PKGROOT) {{{BHPATH}}}
 
 OBJECTS = StarSpaceR.o r_compliance.o RcppExports.o normalize.o dict.o args.o proj.o parser.o data.o model.o starspace.o doc_parser.o doc_data.o utils.o
 

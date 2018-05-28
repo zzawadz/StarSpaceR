@@ -18,35 +18,21 @@ using namespace Rcpp;
 #include <iostream>
 #include <boost/algorithm/string/predicate.hpp>
 
-using namespace starspace;
-using namespace std;
-
-
-// void load_model(std::string model) {
-//
-//   char** argv = 0;
-//   int  argc = 5;
-//
-//
-//
-//   args->model = model;
-//
-//   StarSpace sp(args);
-
-//
-//
-// }
-
 class starspaceR {
 
   private:
+
     std::unique_ptr<starspace::StarSpace> model;
-    shared_ptr<Args> args;
+    std::shared_ptr<starspace::Args> args;
     bool model_loaded;
+
+    void check_model_loaded(){
+      if(!model_loaded) Rcpp::stop("This model has not yet been loaded.");
+    }
 
   public:
     starspaceR(): model_loaded(false) {
-      args = make_shared<Args>();
+      args = std::make_shared<starspace::Args>();
       model =  std::unique_ptr<starspace::StarSpace>(new starspace::StarSpace(args));
     }
 
@@ -57,9 +43,29 @@ class starspaceR {
         } else {
           model->initFromSavedModel(args->model);
         }
+        model_loaded = true;
     }
 
-    int test() { return 1; };
+    // Word vectors
+    NumericVector get_vector(std::string word) {
+      starspace::MatrixRow res = model->getNgramVector(word);
+      return wrap(std::vector<double>(res.begin(), res.end()));
+    }
+
+    NumericMatrix get_vectors(CharacterVector words){
+      check_model_loaded();
+      int dim = 10;
+      Rcpp::NumericMatrix result(words.size(), dim);
+
+      for(int i = 0 ; i < words.size(); ++i) {
+         std::string word(words(i));
+         result.row(i) = get_vector(word);
+         Rcpp::checkUserInterrupt();
+      }
+
+      rownames(result) = words;
+      return result;
+    }
 
 };
 
@@ -67,5 +73,6 @@ RCPP_MODULE(STARSPACER_MODULE) {
   class_<starspaceR>("starspaceR")
   .constructor("Managed Starspace model")
   .method("load_model", &starspaceR::load_model, "Load model from a file.")
-  .method("test", &starspaceR::test, "Test");
+  .method("get_vectors", &starspaceR::get_vectors, "get words vectors")
+  .method("get_vector", &starspaceR::get_vector, "get word vector");
 }
