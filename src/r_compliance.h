@@ -11,6 +11,8 @@
 #define cout Rcout
 #define main main_starspace // no direct call to main(), otherwise Cran complains + strange errors
 #define printInfo(a, b, c) interrupt_or_print(a, b, c)
+#define abort() Rcpp::stop("Internal StarSpace error.")
+#define exit(EXIT_FAILURE) Rcpp::stop("Internal StarSpace error.")
 
 namespace std {
   // Copy of Rcout in std namespace to reroute cout to R terminal with a macro
