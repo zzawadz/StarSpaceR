@@ -1,5 +1,7 @@
 #pragma once
 
+// Code taken and adapted from https://github.com/pommedeterresautee/fastrtext/blob/master/src/r_compliance.h
+
 #include <stdlib.h>
 #include <string.h>
 #include <Rcpp.h>
@@ -7,7 +9,7 @@
 
 #define cerr Rcout // with cerr, no line refresh possible on R (it is an issue for learning with verbose set to 2, progress line is updated)
 #define cout Rcout
-#define main main_fastrtext // no direct call to main(), otherwise Cran complains + strange errors
+#define main main_starspace // no direct call to main(), otherwise Cran complains + strange errors
 #define printInfo(a, b, c) interrupt_or_print(a, b, c)
 
 namespace std {
