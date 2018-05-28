@@ -38,3 +38,4 @@ rsconnect/
 
 *.o
 *.so
+src/Makevars
