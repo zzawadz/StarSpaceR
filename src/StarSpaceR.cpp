@@ -67,6 +67,15 @@ class starspaceR {
       return result;
     }
 
+
+    // some utils for dictionary
+    size_t get_dictionary_size()    { return model->dict_->size(); }
+    size_t get_dictionary_nlabels() { return model->dict_->nlabels(); }
+    size_t get_dictionary_nwords()  { return model->dict_->nwords(); }
+
+    std::string get_dictionary_symbol(size_t id) { return model->dict_->getSymbol(id); }
+    std::string get_dictionary_label(size_t id) { return model->dict_->getLabel(id); }
+
 };
 
 RCPP_MODULE(STARSPACER_MODULE) {
@@ -74,5 +83,10 @@ RCPP_MODULE(STARSPACER_MODULE) {
   .constructor("Managed Starspace model")
   .method("load_model", &starspaceR::load_model, "Load model from a file.")
   .method("get_vectors", &starspaceR::get_vectors, "get words vectors")
-  .method("get_vector", &starspaceR::get_vector, "get word vector");
+  .method("get_vector", &starspaceR::get_vector, "get word vector")
+  .method("get_dictionary_size", &starspaceR::get_dictionary_size, "get dictionary size")
+  .method("get_dictionary_nlabels", &starspaceR::get_dictionary_nlabels, "get_dictionary_nlabels")
+  .method("get_dictionary_nwords", &starspaceR::get_dictionary_nwords, "get_dictionary_nwords")
+  .method("get_dictionary_symbol", &starspaceR::get_dictionary_symbol, "get_dictionary_symbol")
+  .method("get_dictionary_label", &starspaceR::get_dictionary_label, "get_dictionary_label");
 }
