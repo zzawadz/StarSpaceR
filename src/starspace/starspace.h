@@ -50,14 +50,14 @@ class StarSpace {
     const std::string kMagic = "STARSPACE-2017-2";
 
     void loadBaseDocs();
-    
+
     void predictOne(
         const std::vector<Base>& input,
         std::vector<Predictions>& pred);
 
     std::shared_ptr<Args> args_;
     std::vector<std::vector<Base>> baseDocs_;
-  private:
+  public:
     void initParser();
     void initDataHandler();
     std::shared_ptr<InternDataHandler> initData();

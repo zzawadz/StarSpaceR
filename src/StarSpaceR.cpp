@@ -48,6 +48,12 @@ class starspaceR {
 
     // Word vectors
     NumericVector get_vector(std::string word) {
+      check_model_loaded();
+
+      if(args->ngrams == 1 && model->dict_->getId(word) == -1) {
+        Rcpp::stop("Requested word is not present in the dictionary and the model was trained with ngrams = 1.");
+      }
+
       starspace::MatrixRow res = model->getNgramVector(word);
       return wrap(std::vector<double>(res.begin(), res.end()));
     }
