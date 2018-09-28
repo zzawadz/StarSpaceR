@@ -1,23 +1,7 @@
 ## StarSpaceR
 
-![stability-wip](https://img.shields.io/badge/stability-work_in_progress-lightgrey.svg)
-![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
+[![deprecated](http://badges.github.io/stability-badges/dist/deprecated.svg)](http://github.com/badges/stability-badges)
 ![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)
-[![Travis-CI Build Status](https://travis-ci.org/zzawadz/StarSpaceR.svg?branch=master)](https://travis-ci.org/zzawadz/StarSpaceR)
 
-## Installation
+#### StarSpaceR is abandoned. It won't be developed anymore. If you need the access to the StarSpace's model from R please use the https://github.com/bnosac/ruimtehol.
 
-```
-library(devtools)
-install_github("zzawadz/StarSpaceR")
-```
-  
-## Basic usage
-
-```
-library(StarSpaceR)
-modelPath <- system.file(package = "StarSpaceR", "exdata/model_class")
-model <- ssr_load_model(modelPath)
-
-vecs <- model$get_vector("words")
-```
